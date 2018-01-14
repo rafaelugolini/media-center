@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -a
+
+source ./config.env
+
+docker-compose down
+docker-compose up

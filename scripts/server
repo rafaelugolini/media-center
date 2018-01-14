@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -a
+
+source ./config.env
+
+if [ "stop" -eq $1 ];then
+  docker-compose stop
+else
+  docker-compose up
+fi

@@ -1,0 +1,33 @@
+#!/bin/sh
+
+set -a
+
+source ./config.env
+
+DATA="${DATA:-./}"
+
+# sonarr
+mkdir -p "${DATA}/media/config/sonarr"
+mkdir -p "${DATA}/media/tv"
+mkdir -p "${DATA}/media/downloads"
+
+# radarr
+mkdir -p "${DATA}/media/config/radarr"
+mkdir -p "${DATA}/media/tv"
+mkdir -p "${DATA}/media/downloads"
+
+# transmission
+mkdir -p "${DATA}/media/config/transmission"
+mkdir -p "${DATA}/media/watch_torrents"
+mkdir -p "${DATA}/media/downloads"
+
+# jackett
+mkdir -p "${DATA}/media/config/jackett"
+mkdir -p "${DATA}/media/downloads"
+
+# plex
+mkdir -p "${DATA}/media/config/plex"
+mkdir -p "${DATA}/media/downloads"
+mkdir -p "${DATA}/media/tv"
+mkdir -p "${DATA}/media/movies"
+mkdir -p "${DATA}/media/plex_transcode"
