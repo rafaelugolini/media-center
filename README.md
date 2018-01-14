@@ -29,7 +29,7 @@ DATA=${DATA:-"`pwd`"}
 Run
 
 ```bash
-./script/setup
+./scripts/setup
 ```
 
 ## How to run
@@ -37,13 +37,13 @@ Run
 Run
 
 ```bash
-./script/server
+./scripts/server
 ```
 
 ## Update
 
 ```bash
-./script/update
+./scripts/update
 ```
 
 ## Configure
