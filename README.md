@@ -13,9 +13,28 @@ Services included are:
 - Transmission
 - Plex
 
+## Setup
+
+The scripts uses the following variables:
+
+```bash
+PGID=${PGID:-`id -g`}
+PUID=${PUID:-`id -u`}
+TZ=${TZ:-"Europe/Brussels"}
+DATA=${DATA:-"`pwd`"}
+```
+
+**If you don't set they will be choose for you automatically*
+
+Run
+
+```bash
+./script/setup
+```
+
 ## How to run
 
-Set the right path or `media/` will be used
+Run
 
 ```bash
 ./script/server
