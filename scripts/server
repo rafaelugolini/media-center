@@ -4,8 +4,8 @@ set -a
 
 source ./config.env
 
-if [ "stop" -eq $1 ];then
+if [ "stop" == "$1" ];then
   docker-compose stop
 else
-  docker-compose up
+  docker-compose up -d
 fi
