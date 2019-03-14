@@ -1,16 +1,12 @@
-version: "3.2"
+version: "3.4"
 services:
-
   sonarr:
     image: linuxserver/sonarr
-    ports:
-      - "8989:8989"
     environment:
       - TZ=${TZ}
       - PGID=${PGID}
       - PUID=${PUID}
-    networks:
-      - media-center
+    network_mode: host
     volumes:
       - type: bind
         source: "${DATA}/media/config/sonarr"
@@ -24,14 +20,11 @@ services:
 
   radarr:
     image: linuxserver/radarr
-    ports:
-      - "7878:7878"
+    network_mode: host
     environment:
       - TZ=${TZ}
       - PGID=${PGID}
       - PUID=${PUID}
-    networks:
-      - media-center
     volumes:
       - type: bind
         source: "${DATA}/media/config/radarr"
@@ -45,16 +38,11 @@ services:
 
   transmission:
     image: linuxserver/transmission
-    ports:
-      - "9091:9091"
-      - "51413:51413"
-      - "51413:51413/udp"
+    network_mode: host
     environment:
       - TZ=${TZ}
       - PGID=${PGID}
       - PUID=${PUID}
-    networks:
-      - media-center
     volumes:
       - type: bind
         source: "${DATA}/media/config/transmission"
@@ -68,14 +56,11 @@ services:
 
   jackett:
     image: linuxserver/jackett
-    ports:
-      - "9117:9117"
+    network_mode: host
     environment:
       - TZ=${TZ}
       - PGID=${PGID}
       - PUID=${PUID}
-    networks:
-      - media-center
     volumes:
       - type: bind
         source: "${DATA}/media/config/jackett"
@@ -85,22 +70,13 @@ services:
         target: /downloads
 
   plex:
-    image: linuxserver/plex
-    ports:
-      - "32400:32400"
-      - "1900:1900/udp"
-      - "3005:3005"
-      - "5353:5353"
-      - "8324:8324"
-      - "32410-32414:32410-32414/udp"
-      - "32469:32469"
+    image: plexinc/pms-docker
+    network_mode: host
     environment:
       - TZ=${TZ}
       - PGID=${PGID}
       - PUID=${PUID}
       - VERSION=latest
-    networks:
-      - media-center
     volumes:
       - type: bind
         source: "${DATA}/media/config/plex"
@@ -117,6 +93,3 @@ services:
       - type: bind
         source: "${DATA}/media/plex_transcode"
         target: /transcode
-
-networks:
-  media-center:
